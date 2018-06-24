@@ -2,15 +2,25 @@ let express =require('express');
 let app =express();
 let http=require('http').Server(app);
 let io=require('socket.io')(http);
+let users=0;
 
 app.get('/',function(req,res){
     res.sendFile(__dirname+'/index.html');
 })
 
 io.on('connection', function(socket){
+    users++;
+    io.emit('broadcast','hello, Total Users:'+users);
+    socket.on('join', function(data) {
+        console.log(data);
+    });
     socket.on('chat message', function(msg){
       io.emit('chat message', msg);
     });
+    socket.on('disconnect', function () {
+        users--;
+        io.emit('broadcast','Bye! Total Users:'+ users);
+     });
   });
 
 http.listen(3002,function() {

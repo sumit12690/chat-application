@@ -7,7 +7,7 @@ A Chat Application app using [Express 4](http://expressjs.com/) And Nodejs.
 Make sure you have [Node.js](http://nodejs.org/) installed.
 
 ```sh
-git clone git@github.com:sumit12690/chat-application.git # or clone your own fork
+git clone git@github.com:sumit12690/chat-application.git
 cd chat-application
 npm install
 npm start

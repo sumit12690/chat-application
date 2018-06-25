@@ -1,8 +1,8 @@
-let express =require('express');
-let app =express();
-let http=require('http').Server(app);
-let io=require('socket.io')(http);
-let users=0;
+var express =require('express');
+var app =express();
+var http=require('http').Server(app);
+var io=require('socket.io')(http);
+var users=0;
 
 app.get('/',function(req,res){
     res.sendFile(__dirname+'/index.html');
